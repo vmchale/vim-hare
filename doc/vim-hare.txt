@@ -1,0 +1,50 @@
+*vim-hare* Vim plugin providing functionality from HaRe.
+                       _
+     o                | |
+         _  _  _      | |     __,   ,_    _
+|  |_|  / |/ |/ |-----|/ \   /  |  /  |  |/
+ \/  |_/  |  |  |_/   |   |_/\_/|_/   |_/|__/
+
+
+=====================================================================
+CONTENTS                                               *HareContents*
+
+    1. Usage ............................................ ❘HareUsage❘
+    2. Config ..................i....................... ❘HareConfig❘
+    3. License ........................................ ❘HareLicense❘
+
+=====================================================================
+Section 1: Usage                                          *HareUsage*
+
+By default, vim-hare provides three commands and a keybinding, viz.
+
+:Hreplace                                               *:HareRename*
+    Rename the identifier currently under the cursor, e.g. >
+        :Hreplace newName
+<
+
+:Hlift
+    Lift the identifier under the cursor to top-level.    *:HareLift*
+
+:Happlicative                                      *:HareApplicative*
+    Generalize the function under the cursor to use `Applicative`
+    rather than `Monad`.
+
+<Plug>LiftHare .....Lift the identifier under the cursor....❘HareKey❘
+
+=====================================================================
+Section 2: Config                                         *HareConfig*
+
+---------------------------------------------------------------------
+                                                            *HareKey*
+
+If you want to use the keybindings you'll have to add something like
+the following to your .vimrc: >
+    au BufNewFile,BufRead *.hs nmap lu <Plug>LiftHare
+<
+
+=====================================================================
+Section 3: License                                      *HareLicense*
+
+This plugin is licensed under the BDS3 license. 
+
