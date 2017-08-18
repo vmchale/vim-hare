@@ -146,6 +146,7 @@ endfunction
 function! s:Lift()
 
     normal w!
+    normal b
 
     let line = line('.')
     let col = col('.')
@@ -168,6 +169,7 @@ endfunction
 function! s:FunctionReplace(name)
 
     normal w!
+    normal b
 
     let line = line('.')
     let col = col('.')
@@ -190,6 +192,7 @@ endfunction
 function! s:Generalize()
 
     normal w!
+    normal b
 
     let line = line('.')
     let col = col('.')
