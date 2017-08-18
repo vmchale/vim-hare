@@ -145,6 +145,8 @@ endfunction
 
 function! s:Lift()
 
+    normal w!
+
     let line = line('.')
     let col = col('.')
 
@@ -159,9 +161,13 @@ function! s:Lift()
         call cursor(line, col)
     endif
 
+    execute 'checkt'
+
 endfunction
 
 function! s:FunctionReplace(name)
+
+    normal w!
 
     let line = line('.')
     let col = col('.')
@@ -177,11 +183,37 @@ function! s:FunctionReplace(name)
         call cursor(line, col)
     endif
 
-  execute 'checkt'
-  normal w!
+    execute 'checkt'
 
 endfunction
 
+function! s:Generalize()
 
-command!          Hlift    execute s:Lift()
-command! -nargs=1 Hreplace execute s:FunctionReplace(<f-args>)
+    normal w!
+
+    let line = line('.')
+    let col = col('.')
+
+    let name = expand("<cword>")
+
+    call s:info("Generalizing to applicative...")
+    let result = s:hare('genApplicative',
+        \ name, line, col)
+
+    if v:shell_error ==? 0 && result[0] ==? 1
+        call s:preview_diff(result[1])
+    elseif result[0] ==? 0
+        call s:warn(result[1])
+        call cursor(line, col)
+    endif
+
+    execute 'checkt'
+
+endfunction
+
+command!          Happlicative execute s:Generalize() 
+command!          Hlift        execute s:Lift()
+command! -nargs=1 Hreplace     execute s:FunctionReplace(<f-args>)
+
+nnoremap <silent> <Plug>LiftHare :Hlift<CR>
+nnoremap <silent> <Plug>ToApplicative :Happlicative<CR>
