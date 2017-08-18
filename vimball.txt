@@ -1,0 +1,2 @@
+plugin/vim-hare.vim
+doc/vim-hare.txt
