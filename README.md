@@ -22,3 +22,9 @@ what I have in my `.vimrc`:
 ```vim
 au BufNewFile,BufRead *.hs nnoremap lu <Plug>LiftHare
 ```
+
+## Use
+
+  * `:Hreplace newName` - Rename the identifier under the cursor to `newName`
+  * `:Hlift` - Lift a function to top-level
+  * `:Happlicative` - Generalize a monadic function to an applicative one

@@ -220,3 +220,4 @@ command! -nargs=1 Hreplace     execute s:FunctionReplace(<f-args>)
 
 nnoremap <silent> <Plug>LiftHare :Hlift<CR>
 nnoremap <silent> <Plug>ToApplicative :Happlicative<CR>
+nnoremap <Plug>HareRename :Hreplace
